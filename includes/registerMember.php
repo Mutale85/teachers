@@ -126,7 +126,7 @@
 			$mail->Host = "smtp.zoho.com";
 			$mail->isSMTP();
 			$mail->SMTPAuth = true;
-			$mail->Username = "info@osabox.net";
+			$mail->Username = "XXX";
 			$mail->Password = "XXXXX";
 			$mail->SMTPSecure = "ssl";//TLS
 			$mail->Port = 465; //TLS port= 587
