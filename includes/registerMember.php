@@ -127,11 +127,11 @@
 			$mail->isSMTP();
 			$mail->SMTPAuth = true;
 			$mail->Username = "info@osabox.net";
-			$mail->Password = "Mutale@85";
+			$mail->Password = "XXXXX";
 			$mail->SMTPSecure = "ssl";//TLS
 			$mail->Port = 465; //TLS port= 587
 			$mail->addAddress($email, $fullnames); //$inst_admin_email;
-			$mail-> setFrom("info@osabox.net", 'Account');
+			$mail-> setFrom("xxx", 'Account');
 			$mail-> Subject = "Account Registration Successful";
 			$mail->isHTML(TRUE);
 			// $mail->SMTPDebug = 2;
