@@ -12,23 +12,23 @@
 	  		<ul class="navbar-nav ms-auto">
 	  			
 			    <li class="nav-item">
-			      	<a class="nav-link text-darks" href="contact-us" title="contact">Contact Us</a>
+			      	<a class="nav-link text-darks" href="contact-us.php" title="contact">Contact Us</a>
 			    </li>
 				
 	    		<li class="nav-item">
-	      			<a class="nav-link text-darks" href="howtoApply" title="howtoApply">How to Apply </a>
+	      			<a class="nav-link text-darks" href="howtoApply.php" title="howtoApply">How to Apply </a>
 	    		</li>
 	    		<li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 					Teachers
 					</a>
 					<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<li><a class="dropdown-item" href="verify">Verify</a></li>
-						<li><a class="dropdown-item" href="createAccount">Registration</a></li>
-						<li><a class="dropdown-item" href="applicantLogin">Applicant Login</a></li>
+						<li><a class="dropdown-item" href="verify.php">Verify</a></li>
+						<li><a class="dropdown-item" href="createAccount.php">Registration</a></li>
+						<li><a class="dropdown-item" href="applicantLogin.php">Applicant Login</a></li>
 						<li><hr class="dropdown-divider"></li>
-						<li><a class="dropdown-item" href="teacherLogin">Teacher Login</a></li>
-						<li><a class="dropdown-item" href="headLogin">Head of Institution Login</a></li>
+						<li><a class="dropdown-item" href="teacherLogin.php">Teacher Login</a></li>
+						<li><a class="dropdown-item" href="headLogin.php">Head of Institution Login</a></li>
 					</ul>
 				</li>
 				<li class="nav-item dropdown">
@@ -36,8 +36,8 @@
 					TCZ Admins
 					</a>
 					<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<li><a class="dropdown-item" href="login">Staff Login</a></li>
-						<li><a class="dropdown-item" href="tscLogin">HRMC Login</a></li>
+						<li><a class="dropdown-item" href="login.php">Staff Login</a></li>
+						<li><a class="dropdown-item" href="tscLogin.php">HRMC Login</a></li>
 					</ul>
 				</li>
 	  		</ul>

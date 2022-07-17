@@ -10,11 +10,11 @@
           <div class="col-xs-6 col-md-3">
             <h6>Categories</h6>
             <ul class="footer-links">
-              <li><a class="" href="verify">Verify</a></li>
-              <li><a class="" href="createAccount">Registration</a></li>
-              <li><a class="" href="applicantLogin">Applicant Login</a></li>
-              <li><a class="" href="teacherLogin">Teacher Login</a></li>
-              <li><a class="" href="headLogin">Head of Institution Login</a></li>
+              <li><a class="" href="verify.php">Verify</a></li>
+              <li><a class="" href="createAccount.php">Registration</a></li>
+              <li><a class="" href="applicantLogin.php">Applicant Login</a></li>
+              <li><a class="" href="teacherLogin.php">Teacher Login</a></li>
+              <li><a class="" href="headLogin.php">Head of Institution Login</a></li>
             </ul>
           </div>
 
