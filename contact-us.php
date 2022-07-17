@@ -24,7 +24,7 @@
 }
 
 .contactform .form-group .form-control {
-  	-webkit-box-shadow: none;
+  	box-shadow: none;
   	border-bottom: 1px;
   	border-style: none none solid none;
   	border-radius:0; 
@@ -47,7 +47,7 @@ textarea {
     font-size: 0.9375em;
 }
 .btn-mod.btn-border {
-    color: #d1d1d1
+    color: #d1d1d1;
     border: 0.0625em solid #d1d1d1;
     background: transparent;
 }
