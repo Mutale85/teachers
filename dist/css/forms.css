@@ -1,0 +1,87 @@
+.containerForm h1{
+    margin: 15px 0 25px;
+    text-align: center;
+    font-size: 30px;
+}
+.containerForm input{
+    color:#022255 !important;
+}
+.containerForm input[type=email]:focus,
+.containerForm input[type=password]:focus,
+.containerForm input[type=text]:focus{
+    box-shadow: 0 0 5px orange;
+    border: 1px solid orange;
+}
+a:link, a:active {
+	text-decoration: none;
+}
+.containerForm{
+	margin: 3em auto;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.form-horizontal {
+    width: 35%;
+    background-color: #ffffff;
+    padding: 25px 38px;
+    border-radius: 12px;
+    box-shadow: 2px 2px 15px rgba(0,0,0,0.5);
+}
+.control-label {
+    text-align: left !important;
+    padding-bottom: 4px;
+}
+.progress {
+    height: 3px !important;
+}
+.form-group {
+    margin-bottom: 10px;
+}
+
+.progress-bar-danger {
+    background-color: #e90f10;
+}
+.progress-bar-warning{
+    background-color: #ffad00;
+}
+.progress-bar-success{
+    background-color: #02b502;
+}
+.login-btn{
+    width: 100% !important;
+    
+    font-size: 18px;
+    color: #fff;
+    margin: 0 auto 5px;
+    padding: 8px 0; 
+}
+.login-btn:hover{
+    
+    color: #fff !important;
+}
+.bi-eye{
+    color: #022255;
+    cursor: pointer;
+}
+.ex-account p a{
+    color: orange;
+    text-decoration: underline;
+}
+.bi-circle{
+    font-size: 6px;  
+}
+.bi-check{
+    color: #02b502;
+}
+@media screen and (max-width: 768px) {
+	.form-horizontal {
+	    width: 100%;
+	    background-color: #ffffff;
+	    padding: 0;
+	    border-radius: 0;
+	    box-shadow: none;
+	}
+}

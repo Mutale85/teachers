@@ -82,16 +82,166 @@
 		}
 		return $url;
 	}
-	function getParentId($connect, $email){
+	// ========================= CLIENTS ======================
+	function getClientsNamesByEmail($connect, $email, $parent_id) {
+		$query = $connect->prepare("SELECT * FROM clients_details WHERE email = ? AND parent_id = ? ");
+		$query->execute(array($email, $parent_id));
 		$output = "";
-		$query = $connect->prepare("SELECT * FROM members WHERE email = ? ");
-		$query->execute(array($email));
 		$row = $query->fetch();
-		if ($row) {
-			extract($row);
-			$output = $parent_id;
+		if($row){
+			$output = $row['client_name'];
 		}
 		return $output;
+	}
+
+	function getClientsNamesById($connect, $client_id, $parent_id) {
+		$query = $connect->prepare("SELECT * FROM clients_details WHERE client_id = ? AND parent_id = ? ");
+		$query->execute(array($client_id, $parent_id));
+		$output = "";
+		$row = $query->fetch();
+		if($row){
+			$output = $row['client_name'];
+		}
+		return $output;
+	}
+
+	function countClients($connect, $parent_id) {
+		$output = "";
+		$query = $connect->prepare("SELECT * FROM clients_details WHERE parent_id = ? ");
+		$query->execute(array($parent_id));
+		$output = $query->rowCount();
+		return $output;
+	}
+
+
+	// function clientAddress($connect, $client_id, $parent_id){
+ //  		$output = '';
+ //  		$sql = $connect->prepare("SELECT * FROM clients_details WHERE client_id = ? AND parent_id = ? ");
+ //  		$sql->execute(array($client_id, $parent_id));
+ //  		$row = $sql->fetch();
+ //  		extract($row);
+ //  		$output = '
+ //  			<h4>'.$client_name.'</h4>
+ //  			<address>
+ //  				'.$company_name.'<br>
+	// 			'.$address.', '.$city.', '.$country.'<br>
+	// 			'.$phone.' <br>
+	// 			 <a href="mailto:'.$email.'">'.$email.'</a><br>
+	// 			'.url_to_clickable_link($website).'		    								
+	// 		</address>
+ //  		';
+
+ //  		return $output;	
+ //  	}
+
+ //  	function clientName($connect, $client_id, $parent_id){
+ //  		$output = '';
+ //  		$sql = $connect->prepare("SELECT * FROM clients_details WHERE client_id = ? AND parent_id = ? ");
+ //  		$sql->execute(array($client_id, $parent_id));
+ //  		$row = $sql->fetch();
+ //  		extract($row);
+ //  		$output = $client_name;
+
+ //  		return $output;	
+ //  	}
+
+ //  	function clientEmail($connect, $client_id, $parent_id){
+ //  		$output = '';
+ //  		$sql = $connect->prepare("SELECT * FROM clients_details WHERE client_id = ? AND parent_id = ? ");
+ //  		$sql->execute(array($client_id, $parent_id));
+ //  		$row = $sql->fetch();
+ //  		extract($row);
+ //  		$output = $email;
+ //  		return $output;	
+ //  	}
+
+  	#============================= ORGARNISATION INFORMATION =================================================
+	function getOrganisationName($connect, $parent_id) {
+		$output = '';
+		$query = $connect->prepare("SELECT * FROM organisations WHERE parent_id = ? ");
+		$query->execute(array($parent_id));
+		if($query->rowCount() > 0){
+			$row = $query->fetch();
+			if ($row) {
+				$output = $row['organisation_name'];
+			}
+		}else{
+			$output = "<a href='settings'>Organisation Name</a>";
+		}
+
+		return $output;
+	}
+
+	function getOrganisationLogo($connect, $parent_id) {
+		$output = '';
+		$query = $connect->prepare("SELECT * FROM organisations WHERE parent_id = ? ");
+		$query->execute(array($parent_id));
+		if($query->rowCount() > 0){
+			$row = $query->fetch();
+			if ($row) {
+				$output = '
+					<img src="uploads/'.$row['org_logo'].'" alt="'.$row['org_logo'].'" class="img-fluid img-responsive rounded" width="80">
+				';
+			}
+		}else{
+			$output = "<a href='settings'>Set Logo</a>";
+		}
+
+		return $output;
+	}
+
+	function getOrganisationAddressDetailsForPDF($connect, $parent_id) {
+		$output = '';
+		$query = $connect->prepare("SELECT * FROM organisations WHERE parent_id = ? ");
+		$query->execute(array($parent_id));
+		if($query->rowCount() > 0){
+			$row = $query->fetch();
+			if ($row) {
+				extract($row);
+				if ($row['website'] != '') {
+		        	$website =  url_to_clickable_link($row['website']);
+		        }else{
+		        	$website = '';
+		        }
+				$output = '
+                    <address>
+                        '.nl2br($hq_address) .'<br>
+                        '.$admin_email.'<br>'.$hq_phone.'<br>
+                        '.$website.'
+                    </address>
+				';
+			}
+		}else{
+			$output = "<a href='settings'>Organisation Name</a>";
+		}
+
+		return $output;
+	}
+
+	function getOrganisationLogoDetailsForPDF($connect, $parent_id) {
+		$output = '';
+		$query = $connect->prepare("SELECT * FROM organisations WHERE parent_id = ? ");
+		$query->execute(array($parent_id));
+		if($query->rowCount() > 0){
+			$row = $query->fetch();
+			if ($row) {
+				$output = '
+                    uploads/'.$row['org_logo'].'
+				';
+			}
+		}else{
+			$output = "https://weblister.co/images/icon_new.png";
+		}
+
+		return $output;
+	}
+
+	// ============ END OF ORG DETAILS 
+
+	function url_to_clickable_link($str){
+	    $find = array('`((?:https?|ftp)://\S+[[:alnum:]]/?)`si', '`((?<!//)(www\.\S+[[:alnum:]]/?))`si');
+	    $replace = array('<a href="$1" target="_blank">$1</a>', '<a href="http://$1" target="_blank">$1</a>');
+	    return preg_replace($find,$replace,$str);
 	}
 
 ?>
